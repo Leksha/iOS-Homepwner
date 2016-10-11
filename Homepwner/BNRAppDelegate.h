@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  BNRAppDelegate.h
 //  Homepwner
 //
 //  Created by Leksha Ramdenee on 2016-10-11.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface BNRAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

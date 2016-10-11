@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		DA016EDB1DAD3603004C7CBB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA016EDA1DAD3603004C7CBB /* main.m */; };
-		DA016EDE1DAD3603004C7CBB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA016EDD1DAD3603004C7CBB /* AppDelegate.m */; };
-		DA016EE11DAD3603004C7CBB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA016EE01DAD3603004C7CBB /* ViewController.m */; };
+		DA016EDE1DAD3603004C7CBB /* BNRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA016EDD1DAD3603004C7CBB /* BNRAppDelegate.m */; };
 		DA016EE41DAD3603004C7CBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA016EE21DAD3603004C7CBB /* Main.storyboard */; };
 		DA016EE61DAD3603004C7CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA016EE51DAD3603004C7CBB /* Assets.xcassets */; };
 		DA016EE91DAD3603004C7CBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA016EE71DAD3603004C7CBB /* LaunchScreen.storyboard */; };
+		DA016EF21DAD36EE004C7CBB /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA016EF11DAD36EE004C7CBB /* BNRItemsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA016ED61DAD3603004C7CBB /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA016EDA1DAD3603004C7CBB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DA016EDC1DAD3603004C7CBB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		DA016EDD1DAD3603004C7CBB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DA016EDF1DAD3603004C7CBB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DA016EE01DAD3603004C7CBB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DA016EDC1DAD3603004C7CBB /* BNRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BNRAppDelegate.h; sourceTree = "<group>"; };
+		DA016EDD1DAD3603004C7CBB /* BNRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BNRAppDelegate.m; sourceTree = "<group>"; };
 		DA016EE31DAD3603004C7CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA016EE51DAD3603004C7CBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA016EE81DAD3603004C7CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA016EEA1DAD3603004C7CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA016EF01DAD36EE004C7CBB /* BNRItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemsViewController.h; sourceTree = "<group>"; };
+		DA016EF11DAD36EE004C7CBB /* BNRItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +58,10 @@
 		DA016ED81DAD3603004C7CBB /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
-				DA016EDC1DAD3603004C7CBB /* AppDelegate.h */,
-				DA016EDD1DAD3603004C7CBB /* AppDelegate.m */,
-				DA016EDF1DAD3603004C7CBB /* ViewController.h */,
-				DA016EE01DAD3603004C7CBB /* ViewController.m */,
+				DA016EDC1DAD3603004C7CBB /* BNRAppDelegate.h */,
+				DA016EDD1DAD3603004C7CBB /* BNRAppDelegate.m */,
+				DA016EF01DAD36EE004C7CBB /* BNRItemsViewController.h */,
+				DA016EF11DAD36EE004C7CBB /* BNRItemsViewController.m */,
 				DA016EE21DAD3603004C7CBB /* Main.storyboard */,
 				DA016EE51DAD3603004C7CBB /* Assets.xcassets */,
 				DA016EE71DAD3603004C7CBB /* LaunchScreen.storyboard */,
@@ -150,8 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA016EE11DAD3603004C7CBB /* ViewController.m in Sources */,
-				DA016EDE1DAD3603004C7CBB /* AppDelegate.m in Sources */,
+				DA016EDE1DAD3603004C7CBB /* BNRAppDelegate.m in Sources */,
+				DA016EF21DAD36EE004C7CBB /* BNRItemsViewController.m in Sources */,
 				DA016EDB1DAD3603004C7CBB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

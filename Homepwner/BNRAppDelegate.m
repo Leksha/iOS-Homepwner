@@ -1,22 +1,24 @@
 //
-//  AppDelegate.m
+//  BNRAppDelegate.m
 //  Homepwner
 //
 //  Created by Leksha Ramdenee on 2016-10-11.
 //  Copyright © 2016 Leksha Ramdenee. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "BNRAppDelegate.h"
+#import "BNRItemsViewController"
 
-@interface AppDelegate ()
+@interface BNRAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation BNRAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[ ]]
     return YES;
 }
 
