@@ -33,6 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:@"UITableViewCell"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -57,9 +59,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Create an instance of a UITableViewCell, with default appearance
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                   reuseIdentifier:@"UITableViewCell"];
+    // Get a new or recycled cell
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+                                                            forIndexPath:indexPath];
     
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n=row this cell will
