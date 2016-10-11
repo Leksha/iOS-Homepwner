@@ -22,7 +22,7 @@
     
     // Do I need to create a sharedStore?
     if (!sharedStore) {
-        sharedStore = [[self alloc] init];
+        sharedStore = [[self alloc] initPrivate];
     }
     return sharedStore;
 }
