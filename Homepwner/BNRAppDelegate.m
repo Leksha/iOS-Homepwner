@@ -7,7 +7,7 @@
 //
 
 #import "BNRAppDelegate.h"
-#import "BNRItemsViewController"
+#import "BNRItemsViewController.h"
 
 @interface BNRAppDelegate ()
 
@@ -18,7 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window = [[ ]]
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    BNRItemsViewController *itemsViewController = [[BNRItemsViewController alloc] init];
+    self.window.rootViewController = itemsViewController;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
