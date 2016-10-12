@@ -21,11 +21,6 @@
 - (instancetype)init {
     // Call the superclass' designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {
-        for (int i=0; i < 5; i++) {
-            [[BNRItemStore sharedStore] createItem];
-        }
-    }
     return self;
 }
 
@@ -129,17 +124,22 @@
 }
 */
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // If the table view is asking to commit a delete command
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        NSArray *items = [[BNRItemStore sharedStore] allItems];
+        BNRItem *item = items[indexPath.row];
+        [[BNRItemStore sharedStore] removeItem:item];
+        
+        // Also remove the row from the table view with an animation
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+    } /*else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }   */
 }
-*/
 
 /*
 // Override to support rearranging the table view.
