@@ -21,6 +21,9 @@
 - (instancetype)init {
     // Call the superclass' designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        [[BNRItemStore sharedStore] createItem];
+    }
     return self;
 }
 
@@ -68,7 +71,13 @@
     // appear in on the tableview
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *item = items[indexPath.row];
-    cell.textLabel.text = [item description];
+    NSLog(@"Row index: %ld", (long)indexPath.row);
+    if (indexPath.row == [[[BNRItemStore sharedStore] allItems] count]-1) {
+        NSLog(@"Test: %lu", [[[BNRItemStore sharedStore] allItems] count]-1);
+        cell.textLabel.text = @"No more items";
+    } else {
+        cell.textLabel.text = [item description];
+    }
     
     return cell;
 }
@@ -76,11 +85,12 @@
 # pragma mark - Table Header
 - (IBAction)addNewItem:(id)sender {
     // Create a new BNRItem and add it to the store
-    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+//    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
     
     // Figure out where that last item is in the array
-    NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+//    NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    [[BNRItemStore sharedStore] createItem];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     // Insert this new row into the table.
     [self.tableView insertRowsAtIndexPaths:@[indexPath]
