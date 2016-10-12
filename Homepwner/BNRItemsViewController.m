@@ -160,13 +160,15 @@
     return @"Remove";
 }
 
-/*
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    if (indexPath.row == [items indexOfObject:[items lastObject]]) {
+        return NO;
+    }
     return YES;
 }
-*/
 
 /*
 #pragma mark - Navigation
