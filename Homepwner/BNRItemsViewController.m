@@ -134,6 +134,15 @@
 }
 */
 
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath toProposedIndexPath:(nonnull NSIndexPath *)proposedDestinationIndexPath {
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    // Prevent rearranging to the last row, set it to the row before instead
+    if (proposedDestinationIndexPath.row == [items indexOfObject:[items lastObject]]) {
+        return [NSIndexPath indexPathForRow:proposedDestinationIndexPath.row-1 inSection:0];
+    }
+    return proposedDestinationIndexPath;
+}
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If the table view is asking to commit a delete command
@@ -168,6 +177,16 @@
         return NO;
     }
     return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    // Prevent deletion of last row
+    if (indexPath.row == [items indexOfObject:[items lastObject]]) {
+        return UITableViewCellEditingStyleNone;
+    }
+    // The remaining rows can be deleted
+    return UITableViewCellEditingStyleDelete;
 }
 
 /*
