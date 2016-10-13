@@ -8,6 +8,7 @@
 
 #import "BNRDetailViewController.h"
 #import "BNRItem.h"
+#import "BNRSelectDateViewController.h"
 
 @interface BNRDetailViewController ()
 
@@ -58,6 +59,14 @@
 - (void)setItem:(BNRItem *)item {
     _item = item;
     self.navigationItem.title = _item.itemName;
+}
+
+- (IBAction)changeDate:(id)sender {
+    BNRSelectDateViewController *dateViewController = [[BNRSelectDateViewController alloc] init];
+    dateViewController.item = _item;
+    
+    // Push the view controller when the button is pressed
+    [self.navigationController pushViewController:dateViewController animated:YES];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
