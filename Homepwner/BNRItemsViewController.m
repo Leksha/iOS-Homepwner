@@ -192,10 +192,16 @@
 
 #pragma mark - Navigation
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *items = [[BNRItemStore sharedStore] allItems];
+    BNRItem *selectedItem = items[indexPath.row];
+    
+    // Give the detail view controller a pointer ot the item object in row
     BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+    detailViewController.item = selectedItem;
     
     // Push it onto the top of the navigation controller's stack
     [self.navigationController pushViewController:detailViewController animated:YES];
+
 }
 
 /*
