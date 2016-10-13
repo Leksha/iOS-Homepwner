@@ -96,4 +96,18 @@
 }
 
 
+#pragma mark - UIImagePickerControllerDelegate methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    // Get the picker image from our dictionary
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // Put that image onto the screen in our image view
+    self.imageView.image = image;
+    
+    // Take image picker off the screen -
+    // you must call this dismiss method
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
