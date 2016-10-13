@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Homepwner/BNRItemsViewController.m"
-            timestampString = "497987861.887561"
+            timestampString = "498061471.017587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "@implementation BNRItemsViewController"
             landmarkType = "3">
          </BreakpointContent>
