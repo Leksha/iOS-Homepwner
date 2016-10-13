@@ -12,6 +12,7 @@
                 <outlet property="imageView" destination="hAJ-vO-i6a" id="xMt-9a-3wG"/>
                 <outlet property="nameField" destination="ZxT-fM-k0F" id="tra-Iq-0Bb"/>
                 <outlet property="serialNumberField" destination="gqU-mU-UvQ" id="aCe-Og-Z1d"/>
+                <outlet property="toolbar" destination="x3D-nZ-8ca" id="2ei-lX-SFn"/>
                 <outlet property="valueField" destination="hPq-hQ-JJY" id="Xba-ot-FKn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -87,7 +88,11 @@
                     <frame key="frameInset" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem systemItem="camera" id="e2s-EY-OpF"/>
+                        <barButtonItem systemItem="camera" id="e2s-EY-OpF">
+                            <connections>
+                                <action selector="takePicture:" destination="-1" id="0P0-qR-bcU"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1O-8x-cdA">
