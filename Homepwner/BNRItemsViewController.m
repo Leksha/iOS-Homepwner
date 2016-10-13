@@ -24,6 +24,17 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         [[BNRItemStore sharedStore] createItem];
+        UINavigationItem *navItem = self.navigationItem;
+        navItem.title = @"Homepwner";
+        
+        // Create a new bar button item that will send
+        // addNewItem: to BNRItemsViewControlelr
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                             target:self
+                                                                             action:@selector(addNewItem:)];
+        // Set this bar button item as the right item in the navgation item
+        navItem.rightBarButtonItem = bbi;
+        navItem.leftBarButtonItem = self.editButtonItem;
     }
     return self;
 }
