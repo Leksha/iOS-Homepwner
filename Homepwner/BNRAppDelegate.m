@@ -21,7 +21,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     BNRItemsViewController *itemsViewController = [[BNRItemsViewController alloc] init];
-    self.window.rootViewController = itemsViewController;
+    
+    // Create an instance of a UINavigationController
+    // its stack contains only itemsViewController
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+    
+    // Place the navigation controller's view in the window hierarchy
+    self.window.rootViewController = navController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
