@@ -17,7 +17,6 @@
 		DA016EF81DAD3DA1004C7CBB /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DA016EF71DAD3DA1004C7CBB /* BNRItemStore.m */; };
 		DAF15BE01DAFCB4F0041CC3D /* BNRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF15BDE1DAFCB4F0041CC3D /* BNRDetailViewController.m */; };
 		DAF15BE11DAFCB4F0041CC3D /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF15BDF1DAFCB4F0041CC3D /* BNRDetailViewController.xib */; };
-		DAFC20D41DAD8393008D35A5 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAFC20D31DAD8393008D35A5 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +37,6 @@
 		DAF15BDD1DAFCB4F0041CC3D /* BNRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRDetailViewController.h; sourceTree = "<group>"; };
 		DAF15BDE1DAFCB4F0041CC3D /* BNRDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRDetailViewController.m; sourceTree = "<group>"; };
 		DAF15BDF1DAFCB4F0041CC3D /* BNRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRDetailViewController.xib; sourceTree = "<group>"; };
-		DAFC20D31DAD8393008D35A5 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +73,6 @@
 				DA016EDD1DAD3603004C7CBB /* BNRAppDelegate.m */,
 				DA016EF01DAD36EE004C7CBB /* BNRItemsViewController.h */,
 				DA016EF11DAD36EE004C7CBB /* BNRItemsViewController.m */,
-				DAFC20D31DAD8393008D35A5 /* HeaderView.xib */,
 				DA016EF31DAD3A32004C7CBB /* BNRItem.h */,
 				DA016EF41DAD3A32004C7CBB /* BNRItem.m */,
 				DA016EF61DAD3DA1004C7CBB /* BNRItemStore.h */,
@@ -161,7 +158,6 @@
 				DA016EE91DAD3603004C7CBB /* LaunchScreen.storyboard in Resources */,
 				DA016EE61DAD3603004C7CBB /* Assets.xcassets in Resources */,
 				DA016EE41DAD3603004C7CBB /* Main.storyboard in Resources */,
-				DAFC20D41DAD8393008D35A5 /* HeaderView.xib in Resources */,
 				DAF15BE11DAFCB4F0041CC3D /* BNRDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
