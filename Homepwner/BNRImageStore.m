@@ -26,14 +26,6 @@
     return sharedStore;
 }
 
-// No one should call init
-- (instancetype)init {
-    @throw [NSException exceptionWithName:@"Singleton"
-                                   reason:@"Use +[BNRImageStore sharedStore]"
-                                 userInfo:nil];
-    return nil;
-}
-
 // Secret designated initializer
 - (instancetype)initPrivate {
     self = [super init];
@@ -43,6 +35,13 @@
     return self;
 }
 
+// No one should call init
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"Singleton"
+                                   reason:@"Use +[BNRImageStore sharedStore]"
+                                 userInfo:nil];
+    return nil;
+}
 
 - (void)setImage:(UIImage *)image forKey:(NSString *)key {
     [self.dictionary setObject:image forKey:key];

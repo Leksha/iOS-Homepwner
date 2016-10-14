@@ -11,11 +11,12 @@
 
 @interface BNRImageStore : NSObject
 
+// Singelton sharedStore
 + (instancetype)sharedStore;
 
-- (void)setImage:(UIImage *)image forKey:(NSString *)key;
-- (UIImage *)imageForKey:(NSString *)key;
-- (void)deleteImageForKey:(NSString *)key;
+- (void)setImage:(UIImage *)image forKey:(NSString *)key; // Setter
+- (UIImage *)imageForKey:(NSString *)key; // Getter
+- (void)deleteImageForKey:(NSString *)key; // Delete
 
 
 @end
