@@ -10,7 +10,7 @@
 #import "BNRImageStore.h"
 #import "BNRItem.h"
 
-@interface BNRDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface BNRDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
@@ -22,6 +22,10 @@
 @end
 
 @implementation BNRDetailViewController
+
+- (IBAction)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
+}
 
 - (IBAction)takePicture:(id)sender {
     // Needs a source type and a delegate
@@ -121,6 +125,11 @@
     // Take image picker off the screen -
     // you must call this dismiss method
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
