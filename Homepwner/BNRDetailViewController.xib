@@ -30,9 +30,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zm-Wu-ox2">
-                    <frame key="frameInset" minX="35" minY="142" width="43" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zm-Wu-ox2">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Iw4-PE-euB"/>
+                        <constraint firstAttribute="width" constant="43" id="rOO-N4-K8P"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -59,9 +61,7 @@
                         <outlet property="delegate" destination="-1" id="Dfz-nJ-PSy"/>
                     </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gqU-mU-UvQ">
-                    <frame key="frameInset" minX="95" minY="137" width="245" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gqU-mU-UvQ">
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -104,10 +104,15 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="x3D-nZ-8ca" secondAttribute="trailing" id="51X-Tk-Vmu"/>
                 <constraint firstAttribute="trailing" secondItem="ZxT-fM-k0F" secondAttribute="trailing" constant="35" id="5GN-22-EYK"/>
+                <constraint firstAttribute="trailing" secondItem="gqU-mU-UvQ" secondAttribute="trailing" constant="35" id="C9E-Na-PeA"/>
                 <constraint firstItem="tEQ-B3-Ydb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="CZd-fw-iK4"/>
+                <constraint firstItem="gqU-mU-UvQ" firstAttribute="leading" secondItem="6Zm-Wu-ox2" secondAttribute="trailing" constant="17" id="Hd0-QZ-CJf"/>
+                <constraint firstItem="6Zm-Wu-ox2" firstAttribute="leading" secondItem="tEQ-B3-Ydb" secondAttribute="leading" id="Kfs-Lj-deO"/>
                 <constraint firstAttribute="bottom" secondItem="x3D-nZ-8ca" secondAttribute="bottom" id="Ltn-cQ-2ZC"/>
                 <constraint firstItem="ZxT-fM-k0F" firstAttribute="leading" secondItem="tEQ-B3-Ydb" secondAttribute="trailing" constant="15" id="Pmn-pB-tr6"/>
+                <constraint firstItem="gqU-mU-UvQ" firstAttribute="baseline" secondItem="6Zm-Wu-ox2" secondAttribute="baseline" id="do1-1q-afP"/>
                 <constraint firstItem="x3D-nZ-8ca" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gbA-4X-Um5"/>
+                <constraint firstItem="6Zm-Wu-ox2" firstAttribute="top" secondItem="tEQ-B3-Ydb" secondAttribute="bottom" constant="37" id="jem-zz-gQR"/>
                 <constraint firstItem="ZxT-fM-k0F" firstAttribute="baseline" secondItem="tEQ-B3-Ydb" secondAttribute="baseline" id="qd6-Hs-2VO"/>
                 <constraint firstItem="tEQ-B3-Ydb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="u0m-2R-LTH"/>
             </constraints>
