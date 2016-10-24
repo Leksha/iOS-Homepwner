@@ -115,7 +115,10 @@
         // UIPopoverController is deprecated, instead we can set the presentation
         // style to UIModalPresentation Popover
         imagePicker.modalPresentationStyle = UIModalPresentationPopover;
-        imagePicker.popoverPresentationController.barButtonItem = _cameraButton ;
+        
+        UIPopoverPresentationController *popController = [imagePicker popoverPresentationController];
+        popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+        popController.barButtonItem = _cameraButton;        
     }
     
     [self presentViewController:imagePicker animated:YES completion:nil];
