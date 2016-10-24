@@ -22,9 +22,11 @@
     static BNRItemStore *sharedStore = nil;
     
     // Do I need to create a sharedStore?
-    if (!sharedStore) {
+    // We make sure that the code is run exactly once even in a multithreaded app
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         sharedStore = [[self alloc] initPrivate];
-    }
+    });
     return sharedStore;
 }
 
