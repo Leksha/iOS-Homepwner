@@ -8,6 +8,7 @@
 #import "BNRSelectDateViewController.h"
 #import "BNRDetailViewController.h"
 #import "BNRImageStore.h"
+#import "BNRItemStore.h"
 #import "BNRItem.h"
 
 @interface BNRDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
@@ -237,5 +238,19 @@
         [self prepareViewsForOrientation:toInterfaceOrientation];
     } completion:nil];
 }
+
+#pragma mark NewItemView
+
+- (void)save:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)cancel:(id)sender {
+    // If the user cancelled, then remove the BNRItem from the store
+    [[BNRItemStore sharedStore] removeItem:self.item];
+    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
