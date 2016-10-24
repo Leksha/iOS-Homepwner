@@ -57,6 +57,10 @@
                                                                              views:nameMap];
     [self.view addConstraints:horizontalConstraints];
     [self.view addConstraints:verticalConstraints];
+    
+    // Set the vertical priorities to be less than those of other subviews
+    [self.imageView setContentHuggingPriority:200 forAxis:UILayoutConstraintAxisVertical];
+    [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (IBAction)backgroundTapped:(id)sender {
