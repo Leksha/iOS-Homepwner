@@ -83,6 +83,15 @@
     imagePicker.delegate = self;
     
     // Place image picker on the screen
+    // Check for iPad device before instantiating the popover controller
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        // Create a new popover controller that will display the imagePicker
+        // UIPopoverController is deprecated, instead we can set the presentation
+        // style to UIModalPresentation Popover
+        imagePicker.modalPresentationStyle = UIModalPresentationPopover;
+        imagePicker.popoverPresentationController.barButtonItem = _cameraButton ;
+    }
+    
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
