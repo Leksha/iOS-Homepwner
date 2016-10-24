@@ -98,16 +98,13 @@
 # pragma mark - Table Header
 - (IBAction)addNewItem:(id)sender {
     // Create a new BNRItem and add it to the store
-//    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
     
-    // Figure out where that last item is in the array
-//    NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
-    [[BNRItemStore sharedStore] createItem];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] initForNewItem:YES];
+    detailViewController.item = newItem;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
     
-    // Insert this new row into the table.
-    [self.tableView insertRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationTop];
+    [self presentViewController:navController animated:YES completion:nil];
     
 }
 
@@ -180,7 +177,7 @@
     BNRItem *selectedItem = items[indexPath.row];
     
     // Give the detail view controller a pointer ot the item object in row
-    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] initForNewItem:NO];
     detailViewController.item = selectedItem;
     
     // Push it onto the top of the navigation controller's stack
