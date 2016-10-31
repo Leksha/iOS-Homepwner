@@ -84,9 +84,7 @@
     // appear in on the tableview
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *item = items[indexPath.row];
-    NSLog(@"Row index: %ld", (long)indexPath.row);
     if (indexPath.row == [[[BNRItemStore sharedStore] allItems] count]-1) {
-        NSLog(@"Test: %lu", [[[BNRItemStore sharedStore] allItems] count]-1);
         cell.textLabel.text = @"No more items";
     } else {
         cell.textLabel.text = [item description];
