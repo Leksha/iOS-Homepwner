@@ -31,12 +31,24 @@
     self = [super init];
     if (self) {
         _dictionary = [[NSMutableDictionary alloc] init];
+        
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self
+               selector:@selector(clearCache:)
+                   name:UIApplicationDidReceiveMemoryWarningNotification
+                 object:nil];
     }
     return self;
 }
 
+- (void)clearCache:(NSNotification *)note {
+    NSLog(@"flushing %lu images out of cache", (unsigned long)[self.dictionary count]);
+    [self.dictionary removeAllObjects];
+}
+
 // No one should call init
 - (instancetype)init {
+    
     @throw [NSException exceptionWithName:@"Singleton"
                                    reason:@"Use +[BNRImageStore sharedStore]"
                                  userInfo:nil];
