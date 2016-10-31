@@ -6,9 +6,10 @@
 //  Copyright © 2016 Leksha Ramdenee. All rights reserved.
 //
 
-#import "BNRItemsViewController.h"
-#import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "BNRItemCell.h"
+#import "BNRItemStore.h"
+#import "BNRItemsViewController.h"
 #import "BNRDetailViewController.h"
 
 @interface BNRItemsViewController ()
@@ -46,6 +47,12 @@
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
     
+    // Load the NIB file
+    UINib *nib = [UINib nibWithNibName:@"BNRItemCell" bundle:nil];
+    
+    // Register this NIB, which contains the cell
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"BNRItemCell"];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -76,7 +83,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Get a new or recycled cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+    BNRItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BNRItemCell"
                                                             forIndexPath:indexPath];
     
     // Set the text on the cell with the description of the item
@@ -85,9 +92,13 @@
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *item = items[indexPath.row];
     if (indexPath.row == [[[BNRItemStore sharedStore] allItems] count]-1) {
+        
         cell.textLabel.text = @"No more items";
     } else {
-        cell.textLabel.text = [item description];
+        // Configure the cell with the BNRItem
+        cell.nameLabel.text = item.itemName;
+        cell.serialNumberLabel.text = item.serialNumber;
+        cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
     }
     
     return cell;
