@@ -8,15 +8,26 @@
 
 #import "BNRImageViewController.h"
 
-@interface BNRImageViewController ()
+@interface BNRImageViewController () <UIScrollViewDelegate>
 
 @end
 
 @implementation BNRImageViewController
 
 - (void)loadView {
-    UIImageView *imageView = [[UIImageView alloc] init];
+    // Add a UIScrollView to enable zooming
+    CGRect scrollViewFrame = CGRectMake(0, 0,
+                                        self.preferredContentSize.width, self.preferredContentSize.height);
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:scrollViewFrame];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:scrollViewFrame];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [scrollView addSubview:imageView];
+    self.imageView = imageView;
+
+    scrollView.minimumZoomScale = 0.4;
+    scrollView.maximumZoomScale = 4.0;
+    scrollView.clipsToBounds = YES;
+    scrollView.delegate = self;
     
 //    CGSize origImageSize = self.image.size;
 //    
@@ -32,7 +43,7 @@
 //    CGPoint centerImageView = CGPointMake(xOrigin + width/2,
 //                                          yOrigin + height/2);
 //    imageView.center = centerImageView;
-    self.view = imageView;
+    self.view = scrollView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -40,7 +51,7 @@
     
     // We must cast the view to UIImageView so the compiter knows it is
     // ok to send it setImage:
-    UIImageView *imageView = (UIImageView *)self.view;
+    UIImageView *imageView = self.imageView;
     imageView.image = self.image;
 }
 
@@ -63,5 +74,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return [scrollView.subviews firstObject];
+}
 
 @end
