@@ -22,6 +22,12 @@
 
 // We will use this to hide the button in landscape mode
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+
+
 @end
 
 @implementation BNRDetailViewController
@@ -156,7 +162,7 @@
     // Use that image to put on the screen in the imageView
     self.imageView.image = imageToDisplay;
     
-    
+    [self updateFonts];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -255,6 +261,22 @@
     [[BNRItemStore sharedStore] removeItem:self.item];
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
+}
+
+
+#pragma mark Font Style
+
+- (void)updateFonts {
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    
+    self.nameLabel.font = font;
+    self.serialNumberLabel.font = font;
+    self.valueLabel.font = font;
+    self.dateLabel.font = font;
+    
+    self.nameField.font = font;
+    self.serialNumberField.font = font;
+    self.valueField.font = font;
 }
 
 

@@ -11,9 +11,12 @@
                 <outlet property="cameraButton" destination="e2s-EY-OpF" id="Tfe-g1-CV8"/>
                 <outlet property="dateLabel" destination="Mdo-GG-uV5" id="J6b-Px-gck"/>
                 <outlet property="nameField" destination="ZxT-fM-k0F" id="tra-Iq-0Bb"/>
+                <outlet property="nameLabel" destination="tEQ-B3-Ydb" id="cuB-HS-vZY"/>
                 <outlet property="serialNumberField" destination="gqU-mU-UvQ" id="aCe-Og-Z1d"/>
+                <outlet property="serialNumberLabel" destination="6Zm-Wu-ox2" id="Jci-MQ-nE0"/>
                 <outlet property="toolbar" destination="x3D-nZ-8ca" id="2ei-lX-SFn"/>
                 <outlet property="valueField" destination="hPq-hQ-JJY" id="Xba-ot-FKn"/>
+                <outlet property="valueLabel" destination="7Qg-uz-9U1" id="slx-Hb-MZ1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
