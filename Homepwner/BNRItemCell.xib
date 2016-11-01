@@ -41,6 +41,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zw-vr-k1S">
+                        <connections>
+                            <action selector="showImage:" destination="1mM-qZ-rf0" eventType="touchUpInside" id="SRe-m0-GGW"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="Nf2-MW-jxb" secondAttribute="trailing" id="2i2-c4-46n"/>
@@ -48,7 +53,9 @@
                     <constraint firstItem="hKK-KJ-OtI" firstAttribute="top" secondItem="paF-RF-ax9" secondAttribute="top" constant="1" id="5ZN-Q6-G4F"/>
                     <constraint firstItem="Tu5-lf-4jl" firstAttribute="trailing" secondItem="MFh-IM-8gi" secondAttribute="trailing" id="9cH-iB-mm2"/>
                     <constraint firstItem="Tu5-lf-4jl" firstAttribute="centerY" secondItem="paF-RF-ax9" secondAttribute="centerY" constant="-3.25" id="CVy-vZ-gs2"/>
+                    <constraint firstItem="5Zw-vr-k1S" firstAttribute="trailing" secondItem="hKK-KJ-OtI" secondAttribute="trailing" id="MFW-uS-CXH"/>
                     <constraint firstItem="hKK-KJ-OtI" firstAttribute="leading" secondItem="paF-RF-ax9" secondAttribute="leading" constant="2" id="Mde-eF-Kwm"/>
+                    <constraint firstItem="5Zw-vr-k1S" firstAttribute="bottom" secondItem="hKK-KJ-OtI" secondAttribute="bottom" id="Mon-xP-suo"/>
                     <constraint firstItem="MFh-IM-8gi" firstAttribute="leading" secondItem="hKK-KJ-OtI" secondAttribute="trailing" constant="8" id="Peu-dZ-gDq"/>
                     <constraint firstItem="MFh-IM-8gi" firstAttribute="top" secondItem="Tu5-lf-4jl" secondAttribute="bottom" id="Rjk-n4-Dit"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Tu5-lf-4jl" secondAttribute="bottom" constant="6.5" id="WAJ-1v-fob"/>
@@ -58,6 +65,8 @@
                     <constraint firstAttribute="bottom" secondItem="MFh-IM-8gi" secondAttribute="bottom" id="fhi-EK-Suu"/>
                     <constraint firstItem="Nf2-MW-jxb" firstAttribute="leading" secondItem="Tu5-lf-4jl" secondAttribute="trailing" constant="26" id="ft1-Gg-19E"/>
                     <constraint firstAttribute="bottom" secondItem="hKK-KJ-OtI" secondAttribute="bottom" constant="1" id="oBi-xi-ZJ9"/>
+                    <constraint firstItem="5Zw-vr-k1S" firstAttribute="leading" secondItem="hKK-KJ-OtI" secondAttribute="leading" id="tU8-ja-l1m"/>
+                    <constraint firstItem="5Zw-vr-k1S" firstAttribute="top" secondItem="hKK-KJ-OtI" secondAttribute="top" id="wbg-Z4-RLh"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
