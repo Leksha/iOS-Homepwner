@@ -9,10 +9,12 @@
 #import "BNRItem.h"
 #import "BNRItemCell.h"
 #import "BNRItemStore.h"
+#import "BNRImageStore.h"
+#import "BNRImageViewController.h"
 #import "BNRItemsViewController.h"
 #import "BNRDetailViewController.h"
 
-@interface BNRItemsViewController ()
+@interface BNRItemsViewController () <UIPopoverPresentationControllerDelegate>
 
 @end
 
@@ -107,8 +109,36 @@
     cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
     cell.thumbnailView.image = item.thumbnail;
     
-    cell.actionBlock = ^{
+    cell.actionBlock = ^(id sender){
         NSLog(@"Going to show the image for %@", item);
+        NSString *itemKey = item.itemKey;
+        
+        // If there is no image, we don't need to display anything
+        UIImage *img = [[BNRImageStore sharedStore] imageForKey:itemKey];
+        if (!img) {
+            return;
+        }
+        
+        // Make a rectangle for the frame of the thumbnail relative to
+        // our table view
+        // Note: there will be a warning
+        CGRect rect = [self.view convertRect:cell.thumbnailView.bounds
+                                    fromView:cell.thumbnailView];
+        
+        // Create a new BNRImageViewController and set its image
+        BNRImageViewController *ivc = [[BNRImageViewController alloc] init];
+        ivc.image = img;
+        
+        // Present a 600x600 popover fromt the rect
+        ivc.modalPresentationStyle = UIModalPresentationPopover;
+        UIPopoverPresentationController *imagePopover = [ivc popoverPresentationController];
+        imagePopover.permittedArrowDirections = UIPopoverArrowDirectionAny;
+        imagePopover.sourceView = sender;
+        imagePopover.sourceRect = rect;
+        imagePopover.delegate = self;
+        ivc.preferredContentSize = CGSizeMake(600, 600);
+        
+        [self presentViewController:ivc animated:YES completion:nil];
     };
 
     return cell;
@@ -218,4 +248,10 @@
 }
 */
 
+
+#pragma mark Popover
+
+- (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController {
+    NSLog(@"Popover dismissed");
+}
 @end
