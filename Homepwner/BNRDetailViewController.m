@@ -47,7 +47,18 @@
             self.navigationItem.leftBarButtonItem = cancelItem;
         }
     }
+    // Make sure this is NOT in the if (isNew ) { } block of code
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self
+                      selector:@selector(updateFonts)
+                          name:UIContentSizeCategoryDidChangeNotification
+                        object:nil];
     return self;
+}
+
+- (void)dealloc {
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter removeObserver:self];
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
