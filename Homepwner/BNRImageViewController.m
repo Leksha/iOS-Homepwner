@@ -17,6 +17,21 @@
 - (void)loadView {
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+//    CGSize origImageSize = self.image.size;
+//    
+//    float ratio = MAX(imageView.bounds.size.width / origImageSize.width,
+//                      imageView.bounds.size.height / origImageSize.height);
+//    
+//    // Center the image in the view
+//    double width = ratio * origImageSize.width;
+//    double height = ratio * origImageSize.height;
+//    double xOrigin = (self.preferredContentSize.width - width) / 2.0;
+//    double yOrigin = (self.preferredContentSize.height - height) / 2.0;
+//    
+//    CGPoint centerImageView = CGPointMake(xOrigin + width/2,
+//                                          yOrigin + height/2);
+//    imageView.center = centerImageView;
     self.view = imageView;
 }
 
