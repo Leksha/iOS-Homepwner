@@ -108,6 +108,7 @@
     cell.serialNumberLabel.text = item.serialNumber;
     cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
     cell.thumbnailView.image = item.thumbnail;
+    [cell updateValueLabelColor];
     
     __weak BNRItemCell *weakCell = cell;
     

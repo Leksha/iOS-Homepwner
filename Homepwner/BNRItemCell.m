@@ -26,4 +26,13 @@
         self.actionBlock(sender);
     }
 }
+
+- (void)updateValueLabelColor {
+    BOOL isValueGreaterThan50 = ([[self.valueLabel.text substringFromIndex:1] doubleValue] > 50.0);
+    if (isValueGreaterThan50) {
+        self.valueLabel.textColor = [UIColor greenColor];
+    } else {
+        self.valueLabel.textColor = [UIColor redColor];
+    }
+}
 @end

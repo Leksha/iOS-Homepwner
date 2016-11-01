@@ -17,4 +17,6 @@
 
 @property (nonatomic, copy) void (^actionBlock)(id sender);
 
+- (void)updateValueLabelColor;
+
 @end
