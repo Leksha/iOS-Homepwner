@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface BNRItem : NSObject <NSCoding>
 {
@@ -17,6 +18,8 @@
 }
 
 @property (nonatomic, copy) NSString *itemKey;
+@property (nonatomic, strong) UIImage *thumbnail;
+
 
 + (instancetype)randomItem;
 
@@ -37,5 +40,10 @@
 
 - (void)setDateCreated:(NSDate *)date;
 - (NSDate *)dateCreated;
+
+// This method will take a full-sized image, create a smaller representation
+// of it in an offset graphics context object, and set the thumbnail
+// property to the image produced by the offscreen context
+- (void)setThumbnailForImage:(UIImage *)image;
 
 @end
