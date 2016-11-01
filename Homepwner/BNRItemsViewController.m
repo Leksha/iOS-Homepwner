@@ -82,6 +82,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // We want the last row to be different
+    NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] count] - 1;
+    if (indexPath.row == lastRow) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+                                                                forIndexPath:indexPath];
+        cell.textLabel.text = @"No more items";
+        cell.userInteractionEnabled = NO;
+        return cell;
+    }
     // Get a new or recycled cell
     BNRItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BNRItemCell"
                                                             forIndexPath:indexPath];
@@ -91,17 +100,13 @@
     // appear in on the tableview
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *item = items[indexPath.row];
-    if (indexPath.row == [[[BNRItemStore sharedStore] allItems] count]-1) {
-        
-        cell.textLabel.text = @"No more items";
-    } else {
-        // Configure the cell with the BNRItem
-        cell.nameLabel.text = item.itemName;
-        cell.serialNumberLabel.text = item.serialNumber;
-        cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
-        cell.thumbnailView.image = item.thumbnail;
-    }
-    
+
+    // Configure the cell with the BNRItem
+    cell.nameLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
+    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    cell.thumbnailView.image = item.thumbnail;
+
     return cell;
 }
 
