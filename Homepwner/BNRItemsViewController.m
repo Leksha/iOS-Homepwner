@@ -37,11 +37,24 @@
         navItem.rightBarButtonItem = bbi;
         navItem.leftBarButtonItem = self.editButtonItem;
     }
+    // Add self as obser of changes in text size
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(updateTableViewForDynamicTypeSize)
+               name:UIContentSizeCategoryDidChangeNotification
+             object:nil];
+    
     return self;
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     return [self init];
+}
+
+- (void)dealloc
+{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
 }
 
 - (void)viewDidLoad {
