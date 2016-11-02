@@ -26,28 +26,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEQ-B3-Ydb">
-                    <constraints>
-                        <constraint firstAttribute="width" constant="45" id="C3Z-DU-W0h"/>
-                        <constraint firstAttribute="height" constant="21" id="ySg-H8-RVm"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zm-Wu-ox2">
-                    <constraints>
-                        <constraint firstAttribute="width" constant="43" id="ZxA-Pd-p7S"/>
-                        <constraint firstAttribute="height" constant="21" id="m2y-YC-ZOu"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qg-uz-9U1">
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="So4-ao-pcl"/>
-                        <constraint firstAttribute="width" constant="42" id="nPB-Qk-3l0"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -116,6 +104,7 @@
                 <constraint firstItem="hPq-hQ-JJY" firstAttribute="leading" secondItem="7Qg-uz-9U1" secondAttribute="trailing" constant="18" id="Mfa-x7-4DV"/>
                 <constraint firstAttribute="trailing" secondItem="x3D-nZ-8ca" secondAttribute="trailing" id="Ttf-7p-yea"/>
                 <constraint firstItem="6Zm-Wu-ox2" firstAttribute="top" secondItem="tEQ-B3-Ydb" secondAttribute="bottom" constant="37" id="WEH-qu-gRV"/>
+                <constraint firstItem="7Qg-uz-9U1" firstAttribute="width" secondItem="tEQ-B3-Ydb" secondAttribute="width" id="Wqb-b9-NbD"/>
                 <constraint firstItem="tEQ-B3-Ydb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="Wqm-I6-QM1"/>
                 <constraint firstAttribute="trailing" secondItem="gqU-mU-UvQ" secondAttribute="trailing" constant="35" id="WxG-gm-4SH"/>
                 <constraint firstAttribute="trailing" secondItem="d1O-8x-cdA" secondAttribute="trailing" constant="143" id="YRZ-p7-PCt"/>
@@ -128,6 +117,7 @@
                 <constraint firstItem="d1O-8x-cdA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="142" id="lke-cV-NjZ"/>
                 <constraint firstItem="ZxT-fM-k0F" firstAttribute="leading" secondItem="tEQ-B3-Ydb" secondAttribute="trailing" constant="15" id="uoK-PL-071"/>
                 <constraint firstAttribute="trailing" secondItem="ZxT-fM-k0F" secondAttribute="trailing" constant="35" id="xOV-9b-PlU"/>
+                <constraint firstItem="6Zm-Wu-ox2" firstAttribute="width" secondItem="tEQ-B3-Ydb" secondAttribute="width" id="yJP-LD-gCL"/>
                 <constraint firstItem="d1O-8x-cdA" firstAttribute="top" secondItem="Mdo-GG-uV5" secondAttribute="bottom" id="zr0-cH-TQc"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
