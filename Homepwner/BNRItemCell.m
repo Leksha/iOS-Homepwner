@@ -11,7 +11,6 @@
 @interface BNRItemCell ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewWidthConstraint;
 
 @end
 
@@ -41,7 +40,6 @@
     NSString *userSize = [[UIApplication sharedApplication] preferredContentSizeCategory];
     NSNumber *imageSize = imageSizeDictionary[userSize];
     self.imageViewHeightConstraint.constant = imageSize.floatValue;
-    self.imageViewWidthConstraint.constant = imageSize.floatValue;
     
 }
 
@@ -55,6 +53,15 @@
            selector:@selector(updateInterfaceForDynamicTypeSize)
                name:UIContentSizeCategoryDidChangeNotification
              object:nil];
+    
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.thumbnailView
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.thumbnailView
+                                                                  attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1
+                                                                   constant:0];
+    [self.thumbnailView addConstraint:constraint];
 }
 
 - (void)dealloc {
