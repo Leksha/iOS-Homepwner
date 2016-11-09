@@ -6,7 +6,7 @@
 //  Copyright © 2016 Leksha Ramdenee. All rights reserved.
 //
 
-#import "BNRItem.h"
+#import "BNRItem+CoreDataProperties.h"
 #import "BNRItemCell.h"
 #import "BNRItemStore.h"
 #import "BNRImageStore.h"

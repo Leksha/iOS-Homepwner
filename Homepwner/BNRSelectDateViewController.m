@@ -7,7 +7,7 @@
 //
 
 #import "BNRSelectDateViewController.h"
-#import "BNRItem.h"
+#import "BNRItem+CoreDataProperties.h"
 
 @interface BNRSelectDateViewController ()
 

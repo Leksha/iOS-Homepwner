@@ -9,7 +9,7 @@
 #import "BNRDetailViewController.h"
 #import "BNRImageStore.h"
 #import "BNRItemStore.h"
-#import "BNRItem.h"
+#import "BNRItem+CoreDataProperties.h"
 
 @interface BNRDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
