@@ -14,6 +14,11 @@
 
 @property (nonatomic) NSMutableArray *privateItems;
 
+// Added for using the Core Data model
+@property (nonatomic, strong) NSMutableArray *allAssetTypes;
+@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) NSManagedObjectModel *model;
+
 @end
 
 @implementation BNRItemStore
@@ -42,13 +47,30 @@
 - (instancetype)initPrivate {
     self = [super init];
     if (self) {
-        NSString *path = [self itemArchivePath];
-        _privateItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        // Read in Homepwner.xcdatamodeld
+        _model = [NSManagedObjectModel mergedModelFromBundles:nil];
         
-        // If the aray hadn't been saved previously, create a new empty one
-        if (!_privateItems) {
-            _privateItems = [[NSMutableArray alloc] init];
+        NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
+        
+        // Where does the SQLite file go?
+        NSString *path = [self itemArchivePath];
+        NSURL *storeURL = [NSURL fileURLWithPath:path];
+        
+        NSError *error = nil;
+        
+        if (![psc addPersistentStoreWithType:NSSQLiteStoreType
+                               configuration:nil
+                                         URL:storeURL
+                                     options:nil
+                                       error:&error]) {
+            @throw [NSException exceptionWithName:@"OpenFailure"
+                                           reason:[error localizedDescription]
+                                         userInfo:nil];
         }
+        
+        // Create the managed object context
+        _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        _context.persistentStoreCoordinator = psc;
     }
     return self;
 }
@@ -96,7 +118,7 @@
     // Get the one document directory from that list
     NSString *documentDirectory = [documentDirectories firstObject];
     
-    return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
+    return [documentDirectory stringByAppendingPathComponent:@"store.data"];
 }
 
 - (BOOL)saveChanges {
