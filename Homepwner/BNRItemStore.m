@@ -71,6 +71,8 @@
         // Create the managed object context
         _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         _context.persistentStoreCoordinator = psc;
+        
+        [self loadAllItems];
     }
     return self;
 }
@@ -80,7 +82,18 @@
 }
 
 - (BNRItem *)createItem {
-    BNRItem *item = [[BNRItem alloc] init];
+    double order;
+    if ([self.allItems count] == 0){
+        order = 1.0;
+    } else {
+        order = [[self.privateItems lastObject] orderingValue] + 1.0;
+    }
+    NSLog(@"Adding after %lu items, order = %.2f", (unsigned long)[self.privateItems count], order);
+
+    
+    BNRItem *item = [NSEntityDescription insertNewObjectForEntityForName:@"BNRItem"
+                                                  inManagedObjectContext:self.context];
+    item.orderingValue = order;
     
     [self.privateItems insertObject:item atIndex:0];
 //    [self.privateItems addObject:item];
@@ -91,6 +104,7 @@
     NSString *key = item.itemKey;
     [[BNRImageStore sharedStore] deleteImageForKey:key];
     
+    [self.context deleteObject:item];
     [self.privateItems removeObjectIdenticalTo:item];
 }
 
@@ -106,6 +120,30 @@
     
     // Insert item in array at new location
     [self.privateItems insertObject:item atIndex:toIndex];
+    
+    // Computing a new orderValue for the object that was moved
+    double lowerBound = 0.0;
+    
+    // Is there an object before it in the array?
+    if (toIndex > 0) {
+        lowerBound = [self.privateItems[(toIndex-1)] orderingValue];
+    } else {
+        lowerBound = [self.privateItems[1] orderingValue] - 2.0;
+    }
+    
+    double upperBound = 0.0;
+    
+    // Is there an object after it in the arrya?
+    if (toIndex < [self.privateItems count] - 1) {
+        upperBound = [self.privateItems[toIndex + 1] orderingValue];
+    } else {
+        upperBound = [self.privateItems[(toIndex - 1)] orderingValue] + 2.0;
+    }
+    
+    double newOrderValue = (lowerBound + upperBound) / 2.0;
+    
+    NSLog(@"Moving to order %f", newOrderValue);
+    item.orderingValue = newOrderValue;
 }
 
 #pragma mark Archive
@@ -129,5 +167,31 @@
     }
     return successful;
 }
+
+- (void)loadAllItems {
+    if (!self.privateItems) {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        NSEntityDescription *e = [NSEntityDescription entityForName:@"BNRItem"
+                                             inManagedObjectContext:self.context];
+        
+        request.entity = e;
+        
+        NSSortDescriptor *sd = [NSSortDescriptor sortDescriptorWithKey:@"orderingValue"
+                                                             ascending:YES];
+        request.sortDescriptors = @[sd];
+        
+        NSError *error;
+        NSArray *result = [self.context executeFetchRequest:request
+                                                      error:&error];
+        if (!result) {
+            [NSException raise:@"Fetch failed"
+                        format:@"Reason: %@", [error localizedDescription]];
+        }
+        self.privateItems = [[NSMutableArray alloc] initWithArray:result];
+        
+    }
+}
+
 
 @end
