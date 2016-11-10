@@ -24,6 +24,7 @@
 		DA513C361DD386FB002DB6C2 /* BNRItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DA513C341DD386FB002DB6C2 /* BNRItem+CoreDataProperties.m */; };
 		DA88C5571DD23BC100C3D1C4 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA88C5551DD23BC100C3D1C4 /* Homepwner.xcdatamodeld */; };
 		DA88C55A1DD23CED00C3D1C4 /* BNRImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA88C5591DD23CED00C3D1C4 /* BNRImageTransformer.m */; };
+		DA9661471DD51C7D00C9C469 /* BNRAssetTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9661461DD51C7D00C9C469 /* BNRAssetTypeViewController.m */; };
 		DAB740291DAFE2B20050ACD5 /* BNRSelectDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB740271DAFE2B20050ACD5 /* BNRSelectDateViewController.m */; };
 		DAB7402A1DAFE2B20050ACD5 /* BNRSelectDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB740281DAFE2B20050ACD5 /* BNRSelectDateViewController.xib */; };
 		DAF15BE01DAFCB4F0041CC3D /* BNRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF15BDE1DAFCB4F0041CC3D /* BNRDetailViewController.m */; };
@@ -59,6 +60,8 @@
 		DA88C5561DD23BC100C3D1C4 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
 		DA88C5581DD23CED00C3D1C4 /* BNRImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageTransformer.h; sourceTree = "<group>"; };
 		DA88C5591DD23CED00C3D1C4 /* BNRImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageTransformer.m; sourceTree = "<group>"; };
+		DA9661451DD51C7D00C9C469 /* BNRAssetTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRAssetTypeViewController.h; path = ../BNRAssetTypeViewController.h; sourceTree = "<group>"; };
+		DA9661461DD51C7D00C9C469 /* BNRAssetTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRAssetTypeViewController.m; path = ../BNRAssetTypeViewController.m; sourceTree = "<group>"; };
 		DAB740261DAFE2B20050ACD5 /* BNRSelectDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRSelectDateViewController.h; sourceTree = "<group>"; };
 		DAB740271DAFE2B20050ACD5 /* BNRSelectDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRSelectDateViewController.m; sourceTree = "<group>"; };
 		DAB740281DAFE2B20050ACD5 /* BNRSelectDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRSelectDateViewController.xib; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 				DA016EE51DAD3603004C7CBB /* Assets.xcassets */,
 				DA016EDC1DAD3603004C7CBB /* BNRAppDelegate.h */,
 				DA016EDD1DAD3603004C7CBB /* BNRAppDelegate.m */,
+				DA9661481DD51D2700C9C469 /* BNRAssetTypeVC */,
 				DA4C02461DB02D6A00BF0C71 /* BNRImage */,
 				DA4C02441DB02D5100BF0C71 /* BNRItem */,
 				DA0305851DC7E1F500C89ABD /* BNRItemCell */,
@@ -180,6 +184,15 @@
 				DA4C02481DB02EB400BF0C71 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA9661481DD51D2700C9C469 /* BNRAssetTypeVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA9661451DD51C7D00C9C469 /* BNRAssetTypeViewController.h */,
+				DA9661461DD51C7D00C9C469 /* BNRAssetTypeViewController.m */,
+			);
+			name = BNRAssetTypeVC;
 			sourceTree = "<group>";
 		};
 		DA9B67BF1DB5209D007B9FF3 /* BNRSelectDate */ = {
@@ -272,6 +285,7 @@
 				DA016EF81DAD3DA1004C7CBB /* BNRItemStore.m in Sources */,
 				DA513C351DD386FB002DB6C2 /* BNRItem+CoreDataClass.m in Sources */,
 				DA016EDE1DAD3603004C7CBB /* BNRAppDelegate.m in Sources */,
+				DA9661471DD51C7D00C9C469 /* BNRAssetTypeViewController.m in Sources */,
 				DA88C55A1DD23CED00C3D1C4 /* BNRImageTransformer.m in Sources */,
 				DA88C5571DD23BC100C3D1C4 /* Homepwner.xcdatamodeld in Sources */,
 				DA4C02431DB02CF800BF0C71 /* BNRImageStore.m in Sources */,
