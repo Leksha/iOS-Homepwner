@@ -10,6 +10,7 @@
 #import "BNRImageStore.h"
 #import "BNRItemStore.h"
 #import "BNRItem+CoreDataProperties.h"
+#import "BNRAssetTypeViewController.h"
 
 @interface BNRDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
@@ -27,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
 
 @end
 
@@ -173,6 +175,12 @@
     // Use that image to put on the screen in the imageView
     self.imageView.image = imageToDisplay;
     
+    NSString *typeLabel = [self.item.assetType valueForKey:@"label"];
+    if (!typeLabel) {
+        typeLabel = @"None";
+    }
+    self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@", typeLabel];
+    
     [self updateFonts];
 }
 
@@ -290,5 +298,15 @@
     self.valueField.font = font;
 }
 
+#pragma mark TypeAsset
+
+- (IBAction)showAssetTypePicker:(id)sender {
+    [self.view endEditing:YES];
+    
+    BNRAssetTypeViewController *avc = [[BNRAssetTypeViewController alloc] init];
+    avc.item = self.item;
+    
+    [self.navigationController pushViewController:avc animated:YES];
+}
 
 @end
