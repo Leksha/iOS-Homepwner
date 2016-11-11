@@ -17,12 +17,20 @@
 @implementation BNRAssetTypeViewController
 
 - (instancetype)init {
-    return [super initWithStyle:UITableViewStylePlain];
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self){
+        UIBarButtonItem *addAssetTypeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                            target:self
+                                                                                            action:@selector(addAssetType:)];
+        self.title = @"Select Asset Type";
+        self.navigationItem.rightBarButtonItem = addAssetTypeButton;
+    }
+    return self;
 }
 
-- (instancetype)initWithStyle:(UITableViewStyle)style {
-    return [self init];
-}
+//- (instancetype)initWithStyle:(UITableViewStyle)style {
+//    return [self init];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,9 +89,32 @@
     NSManagedObject *assetType = allAssets[indexPath.row];
     self.item.assetType = assetType;
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark addAssetTypeButton
+
+- (void)addAssetType:(id)sender {
+    UIAlertController *addAssetTypeAlert = [UIAlertController alertControllerWithTitle:@"Add new asset type"
+                                                                               message:@"Enter new asset type name"
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [addAssetTypeAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Enter asset type name";
+        textField.keyboardType = UIKeyboardTypeDefault;
+    }];
+    
+    [addAssetTypeAlert addAction:[UIAlertAction actionWithTitle:@"Done" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        NSString *assetTypeName = addAssetTypeAlert.textFields[0].text;
+        [[BNRItemStore sharedStore] addAssetType:assetTypeName];
+        [self.tableView reloadData];
+    }]];
+    
+    [self presentViewController:addAssetTypeAlert animated:YES completion:nil];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -21,5 +21,5 @@
 
 - (BOOL)saveChanges;
 - (NSArray *)allAssetTypes;
-
+- (void)addAssetType:(NSString *)assetTypeName;
 @end

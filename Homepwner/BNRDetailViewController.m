@@ -46,6 +46,7 @@
             UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                         target:self
                                                                                         action:@selector(cancel:)];
+            
             self.navigationItem.leftBarButtonItem = cancelItem;
         }
     }
@@ -311,7 +312,8 @@
     popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
     popController.barButtonItem = _assetTypeButton;
     
-    [self.navigationController presentViewController:avc animated:YES completion:nil];
+    [self.navigationController pushViewController:avc animated:YES];
+//    [self.navigationController presentViewController:avc animated:YES completion:nil];
 }
 
 @end
