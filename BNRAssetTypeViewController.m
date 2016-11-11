@@ -81,7 +81,7 @@
     NSManagedObject *assetType = allAssets[indexPath.row];
     self.item.assetType = assetType;
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

@@ -305,8 +305,13 @@
     
     BNRAssetTypeViewController *avc = [[BNRAssetTypeViewController alloc] init];
     avc.item = self.item;
+    avc.modalPresentationStyle = UIModalPresentationPopover;
     
-    [self.navigationController pushViewController:avc animated:YES];
+    UIPopoverPresentationController *popController = [avc popoverPresentationController];
+    popController.permittedArrowDirections = UIPopoverArrowDirectionAny;
+    popController.barButtonItem = _assetTypeButton;
+    
+    [self.navigationController presentViewController:avc animated:YES completion:nil];
 }
 
 @end
