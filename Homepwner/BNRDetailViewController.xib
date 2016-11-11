@@ -8,7 +8,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BNRDetailViewController">
             <connections>
-                <outlet property="TypeButton" destination="yQF-uM-6Gz" id="y43-ZZ-2dE"/>
                 <outlet property="assetTypeButton" destination="yQF-uM-6Gz" id="awz-Gh-WCD"/>
                 <outlet property="cameraButton" destination="e2s-EY-OpF" id="Tfe-g1-CV8"/>
                 <outlet property="dateLabel" destination="Mdo-GG-uV5" id="J6b-Px-gck"/>
