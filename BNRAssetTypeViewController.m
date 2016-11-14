@@ -52,15 +52,23 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    // One to Show all the Asset types available
+    // The other one to show the assets that have the selected asset type
+    return (self.item.assetType ? 2 : 1);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (self.item.assetType != nil && section == 1){
+        NSString *assetTypeSelected = [self.item.assetType valueForKey:@"label"];
+        NSInteger itemsCount = [[BNRItemStore sharedStore] countNumbeOfItemsInSection:assetTypeSelected];
+        return itemsCount;
+    }
     return [[[BNRItemStore sharedStore] allAssetTypes] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
     // Configure the cell...
     NSArray *allAssets = [[BNRItemStore sharedStore] allAssetTypes];
@@ -68,13 +76,20 @@
     
     // Use key-value coding to get the asset type='s label
     NSString *assetLabel = [assetType valueForKey:@"label"];
-    cell.textLabel.text = assetLabel;
     
-    // Checkmark the one that is currently selected
-    if (assetType == self.item.assetType) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    if (indexPath.section == 0) {
+        cell.textLabel.text = assetLabel;
+        // Checkmark the one that is currently selected
+        if (assetType == self.item.assetType) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
     } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        BNRItem *item = [[BNRItemStore sharedStore] itemsWithAssetTypeSelected:indexPath.row];
+        cell.textLabel.text = item.itemName;
+        cell.detailTextLabel.text = item.serialNumber;
+        cell.imageView.image = item.thumbnail;
     }
     
     return cell;
@@ -100,8 +115,6 @@
                                                                                message:@"Enter new asset type name"
                                                                         preferredStyle:UIAlertControllerStyleAlert];
     
-    __weak typeof(self) weakSelf = self;
-    
     [addAssetTypeAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = @"Enter asset type name";
         textField.keyboardType = UIKeyboardTypeDefault;
@@ -115,6 +128,16 @@
     
     [self presentViewController:addAssetTypeAlert animated:YES completion:nil];
 }
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0){
+        return @"Asset Types";
+    } else {
+        return [NSString stringWithFormat:@"Items in %@", [self.item.assetType valueForKey:@"label"]];
+    }
+}
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -149,14 +172,5 @@
 }
 */
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

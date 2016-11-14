@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *allAssetTypes;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, strong) NSManagedObjectModel *model;
+@property (nonatomic, strong) NSMutableArray *itemsWithAssetType;
 
 @end
 
@@ -238,5 +239,32 @@
     NSLog(@"Added assetType: %@", assetTypeName);
 }
 
+- (NSInteger)countNumbeOfItemsInSection:(NSString *)assetTypeName {
+    if (!_itemsWithAssetType){
+        _itemsWithAssetType = [[NSMutableArray alloc] init];
+    };
+    NSArray *allItems = [[BNRItemStore sharedStore] allItems];
+    
+    NSInteger count = 0;
+    for (int i=0; i<[allItems count]; i++){
+        BNRItem *item = allItems[i];
+        if ([[item.assetType valueForKey:@"label"] isEqualToString:assetTypeName]) {
+            [_itemsWithAssetType insertObject:item atIndex:count];
+            count++;
+        }
+    }
+    return count;
+}
+
+- (BNRItem *)itemsWithAssetTypeSelected:(NSInteger)itemAtIndex{
+    if (!_itemsWithAssetType) {
+        @throw [NSException exceptionWithName:@"Can't create item"
+                                       reason:@"No items with this asset type"
+                                     userInfo:nil];
+        return nil;
+    }
+    return _itemsWithAssetType[itemAtIndex];
+    
+}
 
 @end

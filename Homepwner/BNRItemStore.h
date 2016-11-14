@@ -22,4 +22,7 @@
 - (BOOL)saveChanges;
 - (NSArray *)allAssetTypes;
 - (void)addAssetType:(NSString *)assetTypeName;
+- (NSInteger)countNumbeOfItemsInSection:(NSString *)assetTypeName;
+- (BNRItem *)itemsWithAssetTypeSelected:(NSInteger)itemAtIndex;
+
 @end
