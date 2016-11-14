@@ -16,27 +16,28 @@
 
 @implementation BNRAppDelegate
 
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // If state restoration did not occur, set up the view contorller hierarchy
+    if (!self.window.rootViewController) {
+        BNRItemsViewController *itemsViewController = [[BNRItemsViewController alloc] init];
     
-    BNRItemsViewController *itemsViewController = [[BNRItemsViewController alloc] init];
-    
-    // Create an instance of a UINavigationController
-    // its stack contains only itemsViewController
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
-    
-    // Give the navigation controller a restoration identifier that is the same
-    // name as the class
-    navController.restorationIdentifier = NSStringFromClass([navController class]);
-    
-    
-    // Place the navigation controller's view in the window hierarchy
-    self.window.rootViewController = navController;
-    
-    self.window.backgroundColor = [UIColor whiteColor];
+        // Create an instance of a UINavigationController
+        // its stack contains only itemsViewController
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
+        
+        // Give the navigation controller a restoration identifier that is the same
+        // name as the class
+        navController.restorationIdentifier = NSStringFromClass([navController class]);
+        
+        // Place the navigation controller's view in the window hierarchy
+        self.window.rootViewController = navController;
+    }
     [self.window makeKeyAndVisible];
     
     return YES;
