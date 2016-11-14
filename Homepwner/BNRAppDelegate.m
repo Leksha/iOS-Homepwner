@@ -28,6 +28,11 @@
     // its stack contains only itemsViewController
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsViewController];
     
+    // Give the navigation controller a restoration identifier that is the same
+    // name as the class
+    navController.restorationIdentifier = NSStringFromClass([navController class]);
+    
+    
     // Place the navigation controller's view in the window hierarchy
     self.window.rootViewController = navController;
     
