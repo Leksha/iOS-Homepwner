@@ -20,6 +20,10 @@
 
 @implementation BNRItemsViewController
 
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+    return [[self alloc] init];
+}
+
 - (instancetype)init {
     // Call the superclass' designated initializer
     self = [super initWithStyle:UITableViewStylePlain];

@@ -43,6 +43,24 @@
     return YES;
 }
 
+- (UIViewController *)application:(UIApplication *)application
+viewControllerWithRestorationIdentifierPath:(nonnull NSArray *)identifierComponents
+                            coder:(nonnull NSCoder *)coder {
+    // Create a new navigation controller
+    UIViewController *vc = [[UINavigationController alloc] init];
+    
+    // The last object in the path array is the restoration
+    // identifier for this view controller
+    vc.restorationIdentifier = [identifierComponents lastObject];
+    
+    // If there is only 1 identifier component, then
+    // this is the root view controller
+    if ([identifierComponents count] == 1) {
+        self.window.rootViewController = vc;
+    }
+    
+    return vc;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
