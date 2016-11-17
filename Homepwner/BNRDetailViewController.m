@@ -35,7 +35,7 @@
 @implementation BNRDetailViewController
 
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
-    BOOL isNew = NO:
+    BOOL isNew = NO;
     if ([identifierComponents count] == 3) {
         isNew = YES;
     }
