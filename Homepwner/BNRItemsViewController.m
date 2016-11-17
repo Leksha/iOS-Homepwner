@@ -43,15 +43,25 @@
         // Set this bar button item as the right item in the navgation item
         navItem.rightBarButtonItem = bbi;
         navItem.leftBarButtonItem = self.editButtonItem;
+
+        // Add self as observer of changes in text size
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self
+               selector:@selector(updateTableViewForDynamicTypeSize)
+                   name:UIContentSizeCategoryDidChangeNotification
+                 object:nil];
+        
+        // Register for locale change notifications
+        [nc addObserver:self
+               selector:@selector(localeChanged:)
+                   name:NSCurrentLocaleDidChangeNotification
+                 object:nil];
     }
-    // Add self as obser of changes in text size
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self
-           selector:@selector(updateTableViewForDynamicTypeSize)
-               name:UIContentSizeCategoryDidChangeNotification
-             object:nil];
-    
     return self;
+}
+
+- (void)localeChanged:(NSNotification *)note {
+    [self.tableView reloadData];
 }
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
@@ -127,7 +137,15 @@
     // Configure the cell with the BNRItem
     cell.nameLabel.text = item.itemName;
     cell.serialNumberLabel.text = item.serialNumber;
-    cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    
+    // Create a number formatter for currency
+    static NSNumberFormatter *currencyFormatter = nil;
+    if (currencyFormatter == nil) {
+        currencyFormatter = [[NSNumberFormatter alloc] init];
+        currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    }
+    cell.valueLabel.text = [currencyFormatter stringFromNumber:@(item.valueInDollars)];
+
     cell.thumbnailView.image = item.thumbnail;
     [cell updateValueLabelColor];
     
