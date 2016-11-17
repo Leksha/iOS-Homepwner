@@ -120,7 +120,8 @@
     if (indexPath.row == lastRow) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
                                                                 forIndexPath:indexPath];
-        cell.textLabel.text = @"No more items";
+        cell.textLabel.text = NSLocalizedString(@"No more items", @"Last item line");
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.userInteractionEnabled = NO;
         return cell;
     }

@@ -54,6 +54,8 @@
 		DA15E3761DDE49A0001CAB6C /* BNRAssetTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRAssetTypeViewController.m; sourceTree = "<group>"; };
 		DA15E37B1DDE5169001CAB6C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA15E37D1DDE5170001CAB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA15E3811DDE53E7001CAB6C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/BNRDetailViewController.strings; sourceTree = "<group>"; };
+		DA15E3821DDE5438001CAB6C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA288BE81DC8FFB500107215 /* BNRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageViewController.h; sourceTree = "<group>"; };
 		DA288BE91DC8FFB500107215 /* BNRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageViewController.m; sourceTree = "<group>"; };
 		DA4C02411DB02CF800BF0C71 /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = DA016ECD1DAD3603004C7CBB;
 			productRefGroup = DA016ED71DAD3603004C7CBB /* Products */;
@@ -326,6 +329,7 @@
 			children = (
 				DA15E3711DDE3FE1001CAB6C /* Base */,
 				DA15E3721DDE3FF6001CAB6C /* es */,
+				DA15E3811DDE53E7001CAB6C /* fr */,
 			);
 			name = BNRDetailViewController.xib;
 			sourceTree = "<group>";
@@ -335,6 +339,7 @@
 			children = (
 				DA15E37B1DDE5169001CAB6C /* es */,
 				DA15E37D1DDE5170001CAB6C /* Base */,
+				DA15E3821DDE5438001CAB6C /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
