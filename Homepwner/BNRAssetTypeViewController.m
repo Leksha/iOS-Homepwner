@@ -22,7 +22,7 @@
         UIBarButtonItem *addAssetTypeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                             target:self
                                                                                             action:@selector(addAssetType:)];
-        self.title = @"Select Asset Type";
+        self.navigationItem.title = NSLocalizedString(@"Asset Type", @"BNRAssetTypeViewController title");
         self.navigationItem.rightBarButtonItem = addAssetTypeButton;
     }
     return self;

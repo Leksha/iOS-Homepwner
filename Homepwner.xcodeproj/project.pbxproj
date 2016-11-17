@@ -17,6 +17,8 @@
 		DA0305821DC7E19D00C89ABD /* BNRItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0305811DC7E19D00C89ABD /* BNRItemCell.m */; };
 		DA0305841DC7E1DB00C89ABD /* BNRItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0305831DC7E1DB00C89ABD /* BNRItemCell.xib */; };
 		DA15E36E1DDE3FB7001CAB6C /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA15E3701DDE3FB7001CAB6C /* BNRDetailViewController.xib */; };
+		DA15E3771DDE49A0001CAB6C /* BNRAssetTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA15E3761DDE49A0001CAB6C /* BNRAssetTypeViewController.m */; };
+		DA15E37A1DDE5169001CAB6C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA15E37C1DDE5169001CAB6C /* Localizable.strings */; };
 		DA288BEA1DC8FFB500107215 /* BNRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA288BE91DC8FFB500107215 /* BNRImageViewController.m */; };
 		DA4C02431DB02CF800BF0C71 /* BNRImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C02421DB02CF800BF0C71 /* BNRImageStore.m */; };
 		DA4C02491DB02EB400BF0C71 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA4C02481DB02EB400BF0C71 /* UIKit.framework */; };
@@ -25,7 +27,6 @@
 		DA513C361DD386FB002DB6C2 /* BNRItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = DA513C341DD386FB002DB6C2 /* BNRItem+CoreDataProperties.m */; };
 		DA88C5571DD23BC100C3D1C4 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA88C5551DD23BC100C3D1C4 /* Homepwner.xcdatamodeld */; };
 		DA88C55A1DD23CED00C3D1C4 /* BNRImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA88C5591DD23CED00C3D1C4 /* BNRImageTransformer.m */; };
-		DA9661471DD51C7D00C9C469 /* BNRAssetTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9661461DD51C7D00C9C469 /* BNRAssetTypeViewController.m */; };
 		DAB740291DAFE2B20050ACD5 /* BNRSelectDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB740271DAFE2B20050ACD5 /* BNRSelectDateViewController.m */; };
 		DAB7402A1DAFE2B20050ACD5 /* BNRSelectDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB740281DAFE2B20050ACD5 /* BNRSelectDateViewController.xib */; };
 		DAF15BE01DAFCB4F0041CC3D /* BNRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF15BDE1DAFCB4F0041CC3D /* BNRDetailViewController.m */; };
@@ -49,6 +50,10 @@
 		DA0305831DC7E1DB00C89ABD /* BNRItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRItemCell.xib; sourceTree = "<group>"; };
 		DA15E3711DDE3FE1001CAB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BNRDetailViewController.xib; sourceTree = "<group>"; };
 		DA15E3721DDE3FF6001CAB6C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/BNRDetailViewController.strings; sourceTree = "<group>"; };
+		DA15E3751DDE49A0001CAB6C /* BNRAssetTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRAssetTypeViewController.h; sourceTree = "<group>"; };
+		DA15E3761DDE49A0001CAB6C /* BNRAssetTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRAssetTypeViewController.m; sourceTree = "<group>"; };
+		DA15E37B1DDE5169001CAB6C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA15E37D1DDE5170001CAB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA288BE81DC8FFB500107215 /* BNRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageViewController.h; sourceTree = "<group>"; };
 		DA288BE91DC8FFB500107215 /* BNRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageViewController.m; sourceTree = "<group>"; };
 		DA4C02411DB02CF800BF0C71 /* BNRImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageStore.h; sourceTree = "<group>"; };
@@ -62,8 +67,6 @@
 		DA88C5561DD23BC100C3D1C4 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
 		DA88C5581DD23CED00C3D1C4 /* BNRImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRImageTransformer.h; sourceTree = "<group>"; };
 		DA88C5591DD23CED00C3D1C4 /* BNRImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRImageTransformer.m; sourceTree = "<group>"; };
-		DA9661451DD51C7D00C9C469 /* BNRAssetTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRAssetTypeViewController.h; path = ../BNRAssetTypeViewController.h; sourceTree = "<group>"; };
-		DA9661461DD51C7D00C9C469 /* BNRAssetTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRAssetTypeViewController.m; path = ../BNRAssetTypeViewController.m; sourceTree = "<group>"; };
 		DAB740261DAFE2B20050ACD5 /* BNRSelectDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRSelectDateViewController.h; sourceTree = "<group>"; };
 		DAB740271DAFE2B20050ACD5 /* BNRSelectDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRSelectDateViewController.m; sourceTree = "<group>"; };
 		DAB740281DAFE2B20050ACD5 /* BNRSelectDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRSelectDateViewController.xib; sourceTree = "<group>"; };
@@ -117,11 +120,10 @@
 				DA0305851DC7E1F500C89ABD /* BNRItemCell */,
 				DA4C02451DB02D5B00BF0C71 /* BNRDetailView */,
 				DA9661481DD51D2700C9C469 /* BNRAssetTypeVC */,
-				DA9661451DD51C7D00C9C469 /* BNRAssetTypeViewController.h */,
-				DA9661461DD51C7D00C9C469 /* BNRAssetTypeViewController.m */,
 				DA9B67BF1DB5209D007B9FF3 /* BNRSelectDate */,
 				DA016EE71DAD3603004C7CBB /* LaunchScreen.storyboard */,
 				DA016EE21DAD3603004C7CBB /* Main.storyboard */,
+				DA15E37C1DDE5169001CAB6C /* Localizable.strings */,
 				DA016EEA1DAD3603004C7CBB /* Info.plist */,
 				DA016ED91DAD3603004C7CBB /* Supporting Files */,
 			);
@@ -192,6 +194,8 @@
 		DA9661481DD51D2700C9C469 /* BNRAssetTypeVC */ = {
 			isa = PBXGroup;
 			children = (
+				DA15E3751DDE49A0001CAB6C /* BNRAssetTypeViewController.h */,
+				DA15E3761DDE49A0001CAB6C /* BNRAssetTypeViewController.m */,
 			);
 			name = BNRAssetTypeVC;
 			sourceTree = "<group>";
@@ -267,6 +271,7 @@
 				DA016EE91DAD3603004C7CBB /* LaunchScreen.storyboard in Resources */,
 				DA0305841DC7E1DB00C89ABD /* BNRItemCell.xib in Resources */,
 				DA016EE61DAD3603004C7CBB /* Assets.xcassets in Resources */,
+				DA15E37A1DDE5169001CAB6C /* Localizable.strings in Resources */,
 				DAB7402A1DAFE2B20050ACD5 /* BNRSelectDateViewController.xib in Resources */,
 				DA016EE41DAD3603004C7CBB /* Main.storyboard in Resources */,
 				DA15E36E1DDE3FB7001CAB6C /* BNRDetailViewController.xib in Resources */,
@@ -286,11 +291,11 @@
 				DA016EF81DAD3DA1004C7CBB /* BNRItemStore.m in Sources */,
 				DA513C351DD386FB002DB6C2 /* BNRItem+CoreDataClass.m in Sources */,
 				DA016EDE1DAD3603004C7CBB /* BNRAppDelegate.m in Sources */,
-				DA9661471DD51C7D00C9C469 /* BNRAssetTypeViewController.m in Sources */,
 				DA88C55A1DD23CED00C3D1C4 /* BNRImageTransformer.m in Sources */,
 				DA88C5571DD23BC100C3D1C4 /* Homepwner.xcdatamodeld in Sources */,
 				DA4C02431DB02CF800BF0C71 /* BNRImageStore.m in Sources */,
 				DA016EF21DAD36EE004C7CBB /* BNRItemsViewController.m in Sources */,
+				DA15E3771DDE49A0001CAB6C /* BNRAssetTypeViewController.m in Sources */,
 				DAB740291DAFE2B20050ACD5 /* BNRSelectDateViewController.m in Sources */,
 				DA016EDB1DAD3603004C7CBB /* main.m in Sources */,
 				DA288BEA1DC8FFB500107215 /* BNRImageViewController.m in Sources */,
@@ -323,6 +328,15 @@
 				DA15E3721DDE3FF6001CAB6C /* es */,
 			);
 			name = BNRDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		DA15E37C1DDE5169001CAB6C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA15E37B1DDE5169001CAB6C /* es */,
+				DA15E37D1DDE5170001CAB6C /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
